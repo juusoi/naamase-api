@@ -1,6 +1,7 @@
 # naamase-api
 
 [![CI](https://github.com/juusoi/naamase-api/actions/workflows/ci.yml/badge.svg)](https://github.com/juusoi/naamase-api/actions/workflows/ci.yml)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 [![Code Style: Prettier](https://img.shields.io/badge/code%20style-prettier-ff69b4.svg)](https://prettier.io/)
 ![TypeScript](https://img.shields.io/badge/language-TypeScript-3178C6)
 ![Bun](https://img.shields.io/badge/runtime-Bun-000000)
@@ -167,3 +168,7 @@ Config keys (what they do)
 - Team utils: `src/team-utils.ts`
 - Simple static viewer: `public/viewer.html` (served by `src/preview.ts`)
 - Standings diagnosis tool: `src/diagnose-standings.ts`
+
+## License
+
+MIT — see [LICENSE](LICENSE).

@@ -2,6 +2,7 @@
   "name": "naamase-api",
   "type": "module",
   "private": true,
+  "license": "MIT",
   "scripts": {
     "start": "bun run tsx src/export-faceit.ts",
     "dev": "bun --watch run tsx src/export-faceit.ts",
