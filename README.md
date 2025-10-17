@@ -4,6 +4,12 @@ Export FACEIT organizer/championship/leaderboard data to CSVs via a small CLI.
 
 ## Setup
 
+- Install prerequisites
+  - Node.js 20+ (via nvm): `nvm install --lts && nvm use --lts`
+  - Bun 1.x:
+    - macOS/Linux: `curl -fsSL https://bun.sh/install | bash`
+    - Homebrew (macOS): `brew tap oven-sh/bun && brew install bun`
+
 - Install deps: `bun install`
 - Create `.env` with your API key (secret):
 
