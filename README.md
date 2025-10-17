@@ -1,6 +1,12 @@
 # naamase-api
 
-![CI](https://github.com/juusoi/naamase-api/actions/workflows/ci.yml/badge.svg)
+[![CI](https://github.com/juusoi/naamase-api/actions/workflows/ci.yml/badge.svg)](https://github.com/juusoi/naamase-api/actions/workflows/ci.yml)
+[![Code Style: Prettier](https://img.shields.io/badge/code%20style-prettier-ff69b4.svg)](https://prettier.io/)
+![TypeScript](https://img.shields.io/badge/language-TypeScript-3178C6)
+![Bun](https://img.shields.io/badge/runtime-Bun-000000)
+![Node](https://img.shields.io/badge/node-%3E%3D20-brightgreen)
+[![Issues](https://img.shields.io/github/issues/juusoi/naamase-api.svg)](https://github.com/juusoi/naamase-api/issues)
+[![Pull Requests](https://img.shields.io/github/issues-pr/juusoi/naamase-api.svg)](https://github.com/juusoi/naamase-api/pulls)
 
 Export FACEIT organizer/championship/leaderboard data to CSVs via a small CLI.
 
