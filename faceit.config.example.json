@@ -1,0 +1,17 @@
+{
+  "org-id": "",
+  "org-name": "Pappaliiga",
+  "champ-id": "",
+  "champ-name": "24 Divisioona S11",
+  "lb-id": "",
+  "lb-name": "",
+  "lb-group": null,
+  "lb-pattern": "div\\s*24",
+  "game-id": "cs2",
+  "out-dir": "out",
+  "my-team-id": "",
+  "map-pool": "anubis,ancient,mirage,inferno,nuke,dust2,vertigo",
+  "skip-standings": false,
+  "debug": false,
+  "clean-out": false
+}
