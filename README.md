@@ -1,14 +1,21 @@
 # naamase-api
 
+![CI](https://github.com/juusoi/naamase-api/actions/workflows/ci.yml/badge.svg)
+
 Export FACEIT organizer/championship/leaderboard data to CSVs via a small CLI.
 
 ## Setup
 
 - Install prerequisites
-  - Node.js 20+ (via nvm): `nvm install --lts && nvm use --lts`
-  - Bun 1.x:
+  - Node.js 20+
+    - macOS (nvm): `nvm install --lts && nvm use --lts`
+    - macOS (Homebrew): `brew install node@20 && brew link --force node@20`
+    - Linux (NodeSource): `curl -fsSL https://deb.nodesource.com/setup_20.x | sudo -E bash - && sudo apt-get install -y nodejs`
+    - Windows (winget): `winget install OpenJS.NodeJS.LTS` or download MSI from https://nodejs.org/
+  - Bun 1.x
     - macOS/Linux: `curl -fsSL https://bun.sh/install | bash`
-    - Homebrew (macOS): `brew tap oven-sh/bun && brew install bun`
+    - macOS (Homebrew): `brew tap oven-sh/bun && brew install bun`
+    - Windows (winget): `winget install Oven-sh.Bun` (or PowerShell: `iwr bun.sh/install.ps1 | iex`)
 
 - Install deps: `bun install`
 - Create `.env` with your API key (secret):
