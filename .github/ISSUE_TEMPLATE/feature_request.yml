@@ -1,0 +1,21 @@
+name: Feature request
+description: Suggest an idea for naamase-api
+labels: [enhancement]
+body:
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposal
+      description: What do you want to happen?
+    validations:
+      required: true
+  - type: textarea
+    id: rationale
+    attributes:
+      label: Rationale
+      description: Why is this useful? Who benefits?
+  - type: textarea
+    id: details
+    attributes:
+      label: Details
+      description: API shape, flags, outputs, examples
