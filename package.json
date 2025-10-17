@@ -39,5 +39,10 @@
     "csv-stringify": "^6.6.0",
     "dotenv": "^17.2.3",
     "tsx": "^4.20.6"
+  },
+  "lint-staged": {
+    "**/*.ts": [
+      "eslint --max-warnings=0"
+    ]
   }
 }
