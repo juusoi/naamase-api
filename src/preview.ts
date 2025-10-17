@@ -55,7 +55,7 @@ const server = http.createServer(async (req, res) => {
       }
     }
     return send(res, 404, "Not Found");
-  } catch (e: any) {
+  } catch {
     return send(res, 500, "Server error");
   }
 });

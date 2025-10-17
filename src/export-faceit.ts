@@ -34,8 +34,8 @@ async function j(u: string) {
     let body = "";
     try {
       body = await r.text();
-    } catch (e) {
-      // ignore
+    } catch {
+      body = ""; // noop: keep empty body if text read fails
     }
     throw new Error(`${r.status} ${u}${body ? `\n${body}` : ""}`);
   }
@@ -144,9 +144,11 @@ async function getTeam(teamId: string) {
   const fileCfg = await loadConfig(args.config as string | undefined);
 
   // Basic secret validation
-  const apiKey = (process.env.FACEIT_API_KEY || '').trim();
+  const apiKey = (process.env.FACEIT_API_KEY || "").trim();
   if (!apiKey || apiKey.length < 10) {
-    throw new Error('FACEIT_API_KEY missing or invalid. Set it in .env (dotenv) or environment.');
+    throw new Error(
+      "FACEIT_API_KEY missing or invalid. Set it in .env (dotenv) or environment.",
+    );
   }
 
   const OUT_DIR = (args["out-dir"] ||

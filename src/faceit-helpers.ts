@@ -28,8 +28,8 @@ async function j(u: string) {
     let body = "";
     try {
       body = await r.text();
-    } catch (e) {
-      // ignore
+    } catch {
+      body = ""; // noop
     }
     throw new Error(`${r.status} ${u}${body ? `\n${body}` : ""}`);
   }
