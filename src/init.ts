@@ -106,7 +106,9 @@ function lbNameOf(x: any): string {
         try {
           const re = new RegExp(String(cfg['lb-pattern']), 'i');
           chosen = items.find((it) => re.test(lbNameOf(it)));
-        } catch {}
+        } catch (e) {
+          console.warn('Invalid lb-pattern regex; skipping pattern match');
+        }
       }
       if (!chosen && items.length === 1) chosen = items[0];
       if (chosen?.leaderboard_id) {
@@ -130,4 +132,3 @@ function lbNameOf(x: any): string {
     console.log('No changes needed. Config looks complete.');
   }
 })();
-
