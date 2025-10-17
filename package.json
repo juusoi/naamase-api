@@ -41,8 +41,11 @@
     "tsx": "^4.20.6"
   },
   "lint-staged": {
-    "**/*.ts": [
+    "*.{ts,tsx,js}": [
       "eslint --max-warnings=0"
+    ],
+    "*.{ts,tsx,js,css,md,json,yml,yaml}": [
+      "prettier --check"
     ]
   }
 }
