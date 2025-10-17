@@ -1,4 +1,4 @@
-# osmotar-api
+# naamase-api
 
 Export FACEIT organizer/championship/leaderboard data to CSVs via a small CLI.
 
@@ -117,6 +117,7 @@ Notes:
 - If standings endpoints are not available for your key/competition, the exporter logs and continues; team lists will be inferred from matches.
 
 Config keys (what they do)
+
 - `org-id` | `org-name`: Organizer identifier. Prefer `org-id`; fallback resolves `org-name` to id.
 - `champ-id` | `champ-name`: Championship identifier. Prefer `champ-id`; else resolve by name + `org-id` + `game-id`.
 - `lb-id` | `lb-name` | `lb-group` | `lb-pattern`: Leaderboard selection. Prefer `lb-id`; else match by exact/partial name, numeric group, or regex pattern.
