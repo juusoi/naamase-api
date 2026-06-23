@@ -7,6 +7,12 @@ dist
 *.tgz
 faceit.config.json
 
+# local-only scripts and their artefacts (org-specific, not part of the repo)
+raw/
+*_faceit.json
+validate_faceit_data.py
+src/playbook.ts
+
 # code coverage
 coverage
 *.lcov
