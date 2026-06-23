@@ -25,11 +25,11 @@ async function j(u: string) {
       continue;
     }
     // Surface error body if available
-    let body = "";
+    let body: string;
     try {
       body = await r.text();
     } catch {
-      body = ""; // noop
+      body = "";
     }
     throw new Error(`${r.status} ${u}${body ? `\n${body}` : ""}`);
   }

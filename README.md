@@ -4,7 +4,7 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 [![Code Style: Prettier](https://img.shields.io/badge/code%20style-prettier-ff69b4.svg)](https://prettier.io/)
 ![TypeScript](https://img.shields.io/badge/language-TypeScript-3178C6)
-![Node](https://img.shields.io/badge/node-%3E%3D20-brightgreen)
+![Node](https://img.shields.io/badge/node-LTS%20%28%E2%89%A522%29-brightgreen)
 ![pnpm](https://img.shields.io/badge/package%20manager-pnpm-F69220)
 [![Issues](https://img.shields.io/github/issues/juusoi/naamase-api.svg)](https://github.com/juusoi/naamase-api/issues)
 [![Pull Requests](https://img.shields.io/github/issues-pr/juusoi/naamase-api.svg)](https://github.com/juusoi/naamase-api/pulls)
@@ -14,10 +14,10 @@ Export FACEIT organizer/championship/leaderboard data to CSVs via a small CLI.
 ## Setup
 
 - Install prerequisites
-  - Node.js 20+
+  - Node.js LTS (22+; CI runs 24)
     - macOS (nvm): `nvm install --lts && nvm use --lts`
-    - macOS (Homebrew): `brew install node@20 && brew link --force node@20`
-    - Linux (NodeSource): `curl -fsSL https://deb.nodesource.com/setup_20.x | sudo -E bash - && sudo apt-get install -y nodejs`
+    - macOS (Homebrew): `brew install node && brew link --force node`
+    - Linux (NodeSource): `curl -fsSL https://deb.nodesource.com/setup_lts.x | sudo -E bash - && sudo apt-get install -y nodejs`
     - Windows (winget): `winget install OpenJS.NodeJS.LTS` or download MSI from https://nodejs.org/
   - pnpm 11.x (Corepack ships with Node)
     - Any platform (Corepack): `corepack enable && corepack prepare pnpm@latest --activate`

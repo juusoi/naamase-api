@@ -31,11 +31,11 @@ async function j(u: string) {
       attempt++;
       continue;
     }
-    let body = "";
+    let body: string;
     try {
       body = await r.text();
     } catch {
-      body = ""; // noop: keep empty body if text read fails
+      body = ""; // keep empty body if text read fails
     }
     throw new Error(`${r.status} ${u}${body ? `\n${body}` : ""}`);
   }
