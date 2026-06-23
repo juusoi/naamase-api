@@ -4,8 +4,8 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 [![Code Style: Prettier](https://img.shields.io/badge/code%20style-prettier-ff69b4.svg)](https://prettier.io/)
 ![TypeScript](https://img.shields.io/badge/language-TypeScript-3178C6)
-![Bun](https://img.shields.io/badge/runtime-Bun-000000)
-![Node](https://img.shields.io/badge/node-%3E%3D20-brightgreen)
+![Node](https://img.shields.io/badge/node-LTS%20%28%E2%89%A522%29-brightgreen)
+![pnpm](https://img.shields.io/badge/package%20manager-pnpm-F69220)
 [![Issues](https://img.shields.io/github/issues/juusoi/naamase-api.svg)](https://github.com/juusoi/naamase-api/issues)
 [![Pull Requests](https://img.shields.io/github/issues-pr/juusoi/naamase-api.svg)](https://github.com/juusoi/naamase-api/pulls)
 
@@ -14,17 +14,17 @@ Export FACEIT organizer/championship/leaderboard data to CSVs via a small CLI.
 ## Setup
 
 - Install prerequisites
-  - Node.js 20+
+  - Node.js LTS (22+; CI runs 24)
     - macOS (nvm): `nvm install --lts && nvm use --lts`
-    - macOS (Homebrew): `brew install node@20 && brew link --force node@20`
-    - Linux (NodeSource): `curl -fsSL https://deb.nodesource.com/setup_20.x | sudo -E bash - && sudo apt-get install -y nodejs`
+    - macOS (Homebrew): `brew install node && brew link --force node`
+    - Linux (NodeSource): `curl -fsSL https://deb.nodesource.com/setup_lts.x | sudo -E bash - && sudo apt-get install -y nodejs`
     - Windows (winget): `winget install OpenJS.NodeJS.LTS` or download MSI from https://nodejs.org/
-  - Bun 1.x
-    - macOS/Linux: `curl -fsSL https://bun.sh/install | bash`
-    - macOS (Homebrew): `brew tap oven-sh/bun && brew install bun`
-    - Windows (winget): `winget install Oven-sh.Bun` (or PowerShell: `iwr bun.sh/install.ps1 | iex`)
+  - pnpm 11.x (Corepack ships with Node)
+    - Any platform (Corepack): `corepack enable && corepack prepare pnpm@latest --activate`
+    - macOS/Linux: `curl -fsSL https://get.pnpm.io/install.sh | sh -`
+    - Windows (winget): `winget install pnpm.pnpm`
 
-- Install deps: `bun install`
+- Install deps: `pnpm install`
 - Create `.env` with your API key (secret):
 
   ```bash
@@ -38,30 +38,30 @@ Export FACEIT organizer/championship/leaderboard data to CSVs via a small CLI.
 Using a config file:
 
 ```bash
-bun run tsx src/export-faceit.ts -- --config faceit.config.json
+pnpm exec tsx src/export-faceit.ts --config faceit.config.json
 # or
-bun run start:cfg
+pnpm run start:cfg
 ```
 
 Preview the CSVs in a simple web UI:
 
 ```bash
-bun run preview
+pnpm run preview
 # Open http://localhost:5174
 ```
 
 Diagnose leaderboard standings endpoints (collect responses/headers):
 
 ```bash
-bun run diag:standings
+pnpm run diag:standings
 # or with a custom config path:
-bun run tsx src/diagnose-standings.ts -- --config path/to/config.json
+pnpm exec tsx src/diagnose-standings.ts --config path/to/config.json
 ```
 
 Passing flags directly (CLI > config file > env):
 
 ```bash
-bun start -- \
+pnpm start \
   --org-name "Pappaliiga" \
   --champ-name "24 Divisioona S11" \
   --lb-name "Div 24" \
@@ -151,14 +151,14 @@ Config keys (what they do)
 
 ## Scripts
 
-- `bun run typecheck` — TypeScript check
-- `bun run lint` — ESLint
-- `bun run test` — Vitest
-- `bun start` — Run the exporter
-- `bun run start:cfg` — Run with `faceit.config.json`
-- `bun run preview` — Serve CSV viewer (http://localhost:5174)
-- `bun run init` — Resolve and populate ids in `faceit.config.json`
-- `bun run diag:standings` — Probe standings endpoints
+- `pnpm run typecheck` — TypeScript check
+- `pnpm run lint` — ESLint
+- `pnpm run test` — Vitest
+- `pnpm start` — Run the exporter
+- `pnpm run start:cfg` — Run with `faceit.config.json`
+- `pnpm run preview` — Serve CSV viewer (http://localhost:5174)
+- `pnpm run init` — Resolve and populate ids in `faceit.config.json`
+- `pnpm run diag:standings` — Probe standings endpoints
 
 ## Internals
 

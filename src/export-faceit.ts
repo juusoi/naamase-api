@@ -31,11 +31,11 @@ async function j(u: string) {
       attempt++;
       continue;
     }
-    let body = "";
+    let body: string;
     try {
       body = await r.text();
     } catch {
-      body = ""; // noop: keep empty body if text read fails
+      body = ""; // keep empty body if text read fails
     }
     throw new Error(`${r.status} ${u}${body ? `\n${body}` : ""}`);
   }
@@ -199,8 +199,8 @@ async function getTeam(teamId: string) {
     process.env.FACEIT_LB_PATTERN) as string | undefined;
   const SKIP_STANDINGS = Boolean(
     args["skip-standings"] ??
-      fileCfg["skip-standings"] ??
-      process.env.FACEIT_SKIP_STANDINGS,
+    fileCfg["skip-standings"] ??
+    process.env.FACEIT_SKIP_STANDINGS,
   );
   const MY_TEAM_ID = (args["my-team-id"] ||
     fileCfg["my-team-id"] ||
@@ -219,8 +219,8 @@ async function getTeam(teamId: string) {
 
   const CLEAN_OUT = Boolean(
     (args["clean-out"] as any) ??
-      (fileCfg as any)["clean-out"] ??
-      process.env.FACEIT_CLEAN_OUT,
+    (fileCfg as any)["clean-out"] ??
+    process.env.FACEIT_CLEAN_OUT,
   );
 
   // Prepare output directory (optional clean)

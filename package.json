@@ -3,13 +3,17 @@
   "type": "module",
   "private": true,
   "license": "MIT",
+  "packageManager": "pnpm@11.7.0",
+  "engines": {
+    "node": ">=22.13.0"
+  },
   "scripts": {
-    "start": "bun run tsx src/export-faceit.ts",
-    "dev": "bun --watch run tsx src/export-faceit.ts",
-    "start:cfg": "bun run tsx src/export-faceit.ts -- --config faceit.config.json",
-    "preview": "bun run tsx src/preview.ts",
-    "init": "bun run tsx src/init.ts -- --config faceit.config.json",
-    "diag:standings": "bun run tsx src/diagnose-standings.ts -- --config faceit.config.json",
+    "start": "tsx src/export-faceit.ts",
+    "dev": "tsx watch src/export-faceit.ts",
+    "start:cfg": "tsx src/export-faceit.ts --config faceit.config.json",
+    "preview": "tsx src/preview.ts",
+    "init": "tsx src/init.ts --config faceit.config.json",
+    "diag:standings": "tsx src/diagnose-standings.ts --config faceit.config.json",
     "typecheck": "tsc --noEmit",
     "lint": "eslint . --ext .ts",
     "lint:fix": "eslint . --ext .ts --fix",
@@ -21,17 +25,18 @@
     "prepare": "husky"
   },
   "devDependencies": {
-    "@types/bun": "latest",
+    "@eslint/js": "^10.0.1",
     "@typescript-eslint/eslint-plugin": "^8.46.1",
     "@typescript-eslint/parser": "^8.46.1",
     "@vitest/coverage-v8": "^3.2.4",
-    "eslint": "^9.37.0",
+    "eslint": "^10.5.0",
     "eslint-config-prettier": "^10.1.8",
+    "globals": "^17.6.0",
     "husky": "^9.1.7",
     "lint-staged": "^16.2.4",
     "prettier": "^3.6.2",
-    "vitest": "^3.2.4",
-    "typescript": "^5.9.3"
+    "typescript": "^5.9.3",
+    "vitest": "^3.2.4"
   },
   "peerDependencies": {
     "typescript": "^5.9.3"
