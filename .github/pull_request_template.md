@@ -10,9 +10,9 @@ Describe the change, motivation, and context.
 
 ## Checklist
 
-- [ ] Lint passes (`bun run lint`)
-- [ ] Type-check passes (`bun run typecheck`)
-- [ ] Tests pass (`bun run test`)
+- [ ] Lint passes (`pnpm run lint`)
+- [ ] Type-check passes (`pnpm run typecheck`)
+- [ ] Tests pass (`pnpm run test`)
 - [ ] No secrets committed (`.env`, tokens)
 
 ## Screenshots/Logs (optional)

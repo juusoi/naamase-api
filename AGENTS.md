@@ -14,12 +14,12 @@
 
 ## Build, Test, and Development Commands
 
-- `bun start` — run exporter with env/config/flags.
-- `bun run start:cfg` — run with `faceit.config.json`.
-- `bun run preview` — serve `out/` via `src/preview.ts` (http://localhost:5174).
-- `bun run diag:standings` — probe standings endpoints and print results.
-- `bun run typecheck` | `bun run lint` | `bun run test` — TS, ESLint, Vitest.
-- `bun run format` — Prettier write.
+- `pnpm start` — run exporter with env/config/flags.
+- `pnpm run start:cfg` — run with `faceit.config.json`.
+- `pnpm run preview` — serve `out/` via `src/preview.ts` (http://localhost:5174).
+- `pnpm run diag:standings` — probe standings endpoints and print results.
+- `pnpm run typecheck` | `pnpm run lint` | `pnpm run test` — TS, ESLint, Vitest.
+- `pnpm run format` — Prettier write.
 
 ## Coding Style & Naming Conventions
 
@@ -31,7 +31,7 @@
 ## Testing Guidelines
 
 - Framework: Vitest. Prefer testing pure helpers (parsers, team-utils). Mock `fetch` for API calls.
-- Commands: `bun run test` (CI), `bun run test:watch` (local), `bun run coverage`.
+- Commands: `pnpm run test` (CI), `pnpm run test:watch` (local), `pnpm run coverage`.
 
 ## Commit & Pull Request Guidelines
 

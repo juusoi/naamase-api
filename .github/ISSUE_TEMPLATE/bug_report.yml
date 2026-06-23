@@ -28,4 +28,4 @@ body:
     id: version
     attributes:
       label: Version
-      placeholder: Output of `bun --version` and commit SHA
+      placeholder: Output of `node --version` / `pnpm --version` and commit SHA
