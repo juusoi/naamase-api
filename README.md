@@ -9,7 +9,7 @@
 [![Issues](https://img.shields.io/github/issues/juusoi/naamase-api.svg)](https://github.com/juusoi/naamase-api/issues)
 [![Pull Requests](https://img.shields.io/github/issues-pr/juusoi/naamase-api.svg)](https://github.com/juusoi/naamase-api/pulls)
 
-Export FACEIT organizer/championship/leaderboard data to CSVs via a small CLI.
+Export FACEIT organizer/championship/leaderboard data to CSVs, and build a per-team JSON "playbook", via small CLIs.
 
 ## Setup
 
@@ -90,7 +90,26 @@ Outputs CSVs under the chosen out dir (default `out/`):
 - `my_team_players_agg.csv` (when `my-team-id` provided; per-player aggregates for your team)
 - `my_team_vs_opponents.csv` (when `my-team-id` provided; per-opponent W/L/D breakdown)
 
+## Playbook (per-team JSON)
+
+`pnpm playbook` builds a per-team "playbook": it crawls a team's full FACEIT match history, keeps only matches under one organizer, and aggregates per-map win/loss, rounds, and veto stats into a single JSON file.
+
+It is configured entirely by environment variables (no CLI flags):
+
+- `FACEIT_MY_TEAM_ID` (required) — the team to profile
+- `FACEIT_ORGANIZER_ID` (required) — only matches under this organizer are counted
+- `FACEIT_COMPETITION_FILTER` (optional) — label recorded in the output
+- `FACEIT_PLAYBOOK_OUT` (optional) — output path (default `team_faceit.json`)
+
+```bash
+pnpm playbook
+```
+
+Raw API responses are cached under `raw/` so reruns are cheap; the output (`*_faceit.json`) and the cache are git-ignored. The output shape and its invariants are defined and validated by [`src/playbook-schema.ts`](src/playbook-schema.ts) — see [docs/playbook-contract.md](docs/playbook-contract.md).
+
 ## Flags and env
+
+These apply to the CSV exporter (`pnpm start`):
 
 - `--config` (file): JSON config file path (default tries `faceit.config.json`)
 - `--org-id` | `FACEIT_ORGANIZER_ID`
