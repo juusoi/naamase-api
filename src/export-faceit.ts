@@ -5,42 +5,9 @@ import {
   getChampionshipIdByName,
   getLeaderboardGroupByName,
 } from "./faceit-helpers";
+import { BASE, faceitFetch as j, sleep } from "./faceit-client";
 import { extractTeamIds, extractTeamsBasic } from "./parsers";
 import { splitTeamMatches, myTeamResult } from "./team-utils";
-
-const BASE = "https://open.faceit.com/data/v4";
-const H = {
-  Authorization: `Bearer ${process.env.FACEIT_API_KEY}`,
-  Accept: "application/json",
-};
-
-async function j(u: string) {
-  let attempt = 0;
-  while (true) {
-    const r = await fetch(u, { headers: H });
-    if (r.ok) return r.json();
-    if (r.status === 429 && attempt < 5) {
-      const ra = r.headers.get("retry-after");
-      const reset = r.headers.get("ratelimit-reset");
-      const waitMs = ra
-        ? Number(ra) * 1000
-        : reset
-          ? Number(reset) * 1000
-          : 500 * (attempt + 1);
-      await new Promise((res) => setTimeout(res, waitMs));
-      attempt++;
-      continue;
-    }
-    let body: string;
-    try {
-      body = await r.text();
-    } catch {
-      body = ""; // keep empty body if text read fails
-    }
-    throw new Error(`${r.status} ${u}${body ? `\n${body}` : ""}`);
-  }
-}
-const sleep = (ms: number) => new Promise((res) => setTimeout(res, ms));
 
 type CliArgs = {
   config?: string;
